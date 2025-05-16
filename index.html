@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声キャン！ - 学生の声から企業の採用を変える</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background-color: white;
+            color: #333;
+            box-sizing: border-box;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 10mm;
+            box-sizing: border-box;
+            position: relative;
+            background-color: white;
+        }
+        
+        .main-color {
+            background-color: #FF8C42;
+        }
+        
+        .main-text-color {
+            color: #FF8C42;
+        }
+        
+        .secondary-color {
+            background-color: #FFF6EB;
+        }
+        
+        .accent-color {
+            color: #FF5722;
+        }
+        
+        .feature-box {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon-wrapper {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        
+        .icon-image {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        
+        .icon-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 140, 66, 0.9);
+            padding: 10px 0;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .number-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member {
+            transition: transform 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .orange-gradient {
+            background: linear-gradient(135deg, #FF8C42 0%, #FF5722 100%);
+        }
+        
+        .header-shadow {
+            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        }
+
+        .header-image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            mix-blend-mode: soft-light;
+            opacity: 0.9;
+        }
+        
+        .shadow-text {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .message-box {
+            transform: rotate(-1deg);
+            transition: transform 0.3s;
+        }
+        
+        .message-box:hover {
+            transform: rotate(0deg);
+        }
+        
+        .feature-icon {
+            max-width: 80%;
+            max-height: 80%;
+            margin: 0 auto;
+        }
+        
+        .border-orange {
+            border-color: #FF8C42;
+        }
+        
+        @media print {
+            body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .page {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 10mm;
+                box-shadow: none;
+            }
+            
+            .feature-box:hover {
+                transform: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .team-member:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- ヘッダー部分 -->
+        <div class="relative overflow-hidden rounded-lg orange-gradient header-shadow" style="height: 120mm;">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/bb4ef9b7-8531-47f9-8572-a3536c66144d_wm" alt="ビジネスイラスト" class="header-image">
+            </div>
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-orange-500 to-transparent opacity-30"></div>
+            <div class="relative z-10 p-8 flex flex-col items-center justify-center h-full">
+                <h1 class="text-6xl font-bold text-white text-center mb-4 shadow-text">声キャン！</h1>
+                <p class="text-3xl text-white text-center mb-10 shadow-text">学生の声から企業の採用を変える</p>
+                <div class="bg-white bg-opacity-95 rounded-lg p-6 max-w-xl mx-auto shadow-lg message-box">
+                    <p class="text-3xl font-bold text-center accent-color">「現場に届く、『伝えたい』が叶う。」</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ミッション部分 -->
+        <div class="py-6 text-center">
+            <h2 class="text-2xl font-bold mb-3">ミッション</h2>
+            <p class="text-xl bg-yellow-100 inline-block px-8 py-4 rounded-lg shadow-md border-l-4 border-orange-500">「企業の"伝えたい"と、学生の"受け取っている"をつなぐ」</p>
+        </div>
+        
+        <!-- サービス価値 -->
+        <div class="grid grid-cols-3 gap-6 mb-8">
+            <div class="feature-box secondary-color">
+                <div class="w-full icon-wrapper">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/eafeaacb-29bc-420b-8710-0b6f89f56399_wm" alt="採用ページの改善" class="icon-image">
+                    <div class="icon-overlay">採用ページの改善</div>
+                </div>
+                <p class="text-center py-2 px-3">ミスマッチを減らし、本当に合う学生と出会えます</p>
+            </div>
+            
+            <div class="feature-box secondary-color">
+                <div class="w-full icon-wrapper">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/b5985145-0589-43b3-9c74-7cdcfd1776dc_wm" alt="インターン応募増" class="icon-image">
+                    <div class="icon-overlay">インターン応募増</div>
+                </div>
+                <p class="text-center py-2 px-3">学生の視点に合わせた魅力的なコンテンツ作り</p>
+            </div>
+            
+            <div class="feature-box secondary-color">
+                <div class="w-full icon-wrapper">
+                    <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/dd8a12fa-76f8-42bf-95cb-1ac2a962a86d_wm" alt="リアルな学生の声" class="icon-image">
+                    <div class="icon-overlay">リアルな学生の声</div>
+                </div>
+                <p class="text-center py-2 px-3">学生が感じた"違和感"や"印象"をリアルに収集</p>
+            </div>
+        </div>
+        
+        <!-- 課題部分 -->
+        <div class="mb-8 bg-gray-50 rounded-xl p-6 shadow-sm">
+            <h2 class="text-2xl font-bold mb-4 text-center">こんな課題に向いてます</h2>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                    </svg>
+                    <p class="font-medium">採用ページを改善したいが、どこがズレてるかわからない</p>
+                </div>
+                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                    </svg>
+                    <p class="font-medium">インターンを作ったのに応募が少ない</p>
+                </div>
+                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                    </svg>
+                    <p class="font-medium">SNSで採用発信をしているが反応がない</p>
+                </div>
+                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                    </svg>
+                    <p class="font-medium">学生から見た「うちの会社のイメージ」を知りたい</p>
+                </div>
+            </div>
+            <div class="text-center mt-5 bg-orange-100 rounded-lg p-4 border-orange-200 border">
+                <p class="font-bold text-xl text-orange-600 mb-2">学生の"リアルな印象"を集めます</p>
+                <div class="flex justify-center gap-6">
+                    <p class="bg-white px-4 py-2 rounded-full font-medium text-orange-700 shadow-sm">企業と学生をつなぐ</p>
+                    <p class="bg-white px-4 py-2 rounded-full font-medium text-orange-700 shadow-sm">企業の採用をアップデート</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 導入の流れ -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-5 text-center">導入の流れ</h2>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
+                    <div class="number-circle main-color mx-auto mb-3">1</div>
+                    <h3 class="font-bold mb-2 text-orange-700">アンケート内容の精査</h3>
+                    <p class="text-sm">御社独自の課題や<br>ニーズを確認</p>
+                </div>
+                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
+                    <div class="number-circle main-color mx-auto mb-3">2</div>
+                    <h3 class="font-bold mb-2 text-orange-700">アンケート作成</h3>
+                    <p class="text-sm">学生から本音を<br>引き出す設計</p>
+                </div>
+                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
+                    <div class="number-circle main-color mx-auto mb-3">3</div>
+                    <h3 class="font-bold mb-2 text-orange-700">声を集める</h3>
+                    <p class="text-sm">リアルな意見を<br>幅広く収集</p>
+                </div>
+                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
+                    <div class="number-circle main-color mx-auto mb-3">4</div>
+                    <h3 class="font-bold mb-2 text-orange-700">フィードバック</h3>
+                    <p class="text-sm">分析結果と<br>改善案を提案</p>
+                </div>
+            </div>
+            <div class="text-center mt-4 bg-orange-50 p-3 rounded-lg border border-orange-100">
+                <p class="font-bold text-orange-600">2〜4を繰り返してレベルアップ！</p>
+            </div>
+        </div>
+        
+        <!-- チーム紹介 -->
+        <div class="mb-8 bg-gray-50 rounded-xl p-6">
+            <h2 class="text-2xl font-bold mb-5 text-center">運営メンバー</h2>
+            <div class="flex justify-center gap-10">
+                <div class="team-member text-center">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-2 border-orange-500 bg-white flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-orange-700">藤木 見帆</h3>
+                    <p class="text-sm bg-white p-2 rounded-lg mt-2 shadow-sm">合同会社Solizon<br>SNSマーケティング/<br>SNSコンサルティング</p>
+                </div>
+                <div class="team-member text-center">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-2 border-orange-500 bg-white flex items-center justify-center shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg text-orange-700">西田 啓人</h3>
+                    <p class="text-sm bg-white p-2 rounded-lg mt-2 shadow-sm">福井大学 電力システム研究室<br>博士課程3年</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 問い合わせ -->
+        <div class="orange-gradient rounded-lg p-6 text-center text-white shadow-lg">
+            <h2 class="text-2xl font-bold mb-3">お問い合わせ</h2>
+            <p class="mb-5">「興味あるかも」と思ったら、一度15分だけオンラインでお話ししませんか？</p>
+            <div class="flex justify-center gap-10">
+                <div class="bg-white bg-opacity-90 px-6 py-3 rounded-lg shadow-md text-gray-800">
+                    <p class="font-bold text-orange-600">メール</p>
+                    <p>info@koe-can.jp</p>
+                </div>
+                <div class="bg-white bg-opacity-90 px-6 py-3 rounded-lg shadow-md text-gray-800">
+                    <p class="font-bold text-orange-600">電話</p>
+                    <p>070-XXXX-XXXX</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- フッター -->
+        <div class="mt-6 text-center text-sm text-gray-500">
+            <p>© 2023 声キャン！プロジェクト｜学生の声から企業の採用を変える</p>
+        </div>
+        
+        <!-- オレンジのアクセント部分 -->
+        <div class="absolute top-0 right-0 h-16 w-40 main-color rounded-bl-2xl shadow-md"></div>
+        <div class="absolute bottom-0 left-0 h-16 w-40 main-color rounded-tr-2xl shadow-md"></div>
+    </div>
+</body>
+</html>
