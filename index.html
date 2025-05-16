@@ -13,8 +13,7 @@
             width: 210mm;
             min-height: 297mm;
             margin: 0 auto;
-            /* 背景色をオレンジに変更し、透明度80%に設定 */
-            background-color: rgba(255, 140, 66, 0.8); /* #FF8C42の80%透明度バージョン */
+            background-color: white;
             color: #333;
             box-sizing: border-box;
         }
@@ -25,8 +24,12 @@
             padding: 10mm;
             box-sizing: border-box;
             position: relative;
-            background-color: white;
+            /* 背景色をオレンジに変更し、透明度80%に設定 */
+            background-color: rgba(255, 140, 66, 0.8); /* #FF8C42の80%透明度バージョン */
+            /* shadow-mdも残して視認性をよくする */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
+
         
         .main-color {
             background-color: #FF8C42;
