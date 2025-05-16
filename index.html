@@ -120,11 +120,11 @@
         }
 
         .header-image {
-            height: 100%;
             width: 100%;
-            object-fit: contain;       /* 既存の設定 */
-            object-position: center;; /* 画像の中心部分を表示 */
-            opacity: 0.7;
+            height: auto;       /* 画像の元のアスペクト比を維持 */
+            object-fit: contain; /* 画像全体を表示 */
+            object-position: center;
+            opacity: 1;
         }
         
         .shadow-text {
@@ -285,7 +285,7 @@
 <body>
     <div class="page">
         <!-- ヘッダー部分 -->
-        <div class="relative overflow-hidden rounded-lg header-shadow" style="height: 120mm;">
+        <div class="relative overflow-hidden rounded-lg header-shadow">
             <div class="absolute inset-0 flex items-center justify-center">
                 <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/head.png" alt="ビジネスイラスト" class="header-image">
             </div>
