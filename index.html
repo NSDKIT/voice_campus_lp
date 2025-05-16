@@ -3,385 +3,377 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>声キャン！ - 学生の声から企業の採用を変える</title>
+    <title>声キャン！- 学生の声から企業の採用を変える | A4印刷最適化デザイン</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+        @page {
+            size: A4;
+            margin: 0;
+        }
         
         body {
             font-family: 'Noto Sans JP', sans-serif;
             width: 210mm;
-            min-height: 297mm;
+            height: 297mm;
             margin: 0 auto;
             background-color: white;
             color: #333;
             box-sizing: border-box;
+            overflow: hidden;
+            position: relative;
         }
         
-        .page {
+        .a4-container {
             width: 210mm;
-            min-height: 297mm;
+            height: 297mm;
             padding: 10mm;
             box-sizing: border-box;
             position: relative;
             background-color: white;
-        }
-        
-        .main-color {
-            background-color: #FF8C42;
-        }
-        
-        .main-text-color {
-            color: #FF8C42;
-        }
-        
-        .secondary-color {
-            background-color: #FFF6EB;
-        }
-        
-        .accent-color {
-            color: #FF5722;
-        }
-        
-        .feature-box {
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
             overflow: hidden;
-            height: auto;
-            min-height: 160px;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .icon-wrapper {
-            position: relative;
-            width: 100%;
-            height: 160px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border-radius: 8px 8px 0 0;
-            overflow: hidden;
-            margin-bottom: 0;
+            flex-direction: column;
         }
         
-        .icon-image {
-            width: 85%;
-            height: 85%;
-            object-fit: contain;
-            transition: transform 0.3s;
+        /* Print optimized color variables */
+        :root {
+            --primary-color: #E95514; /* CMYK optimized orange */
+            --primary-light: #FFEAD5;
+            --primary-dark: #B23700;
+            --accent-color: #FFB672;
+            --text-dark: #222222;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --background-light: #F8F8F8;
+            --gold: linear-gradient(135deg, #E6C88A 0%, #D4AF37 50%, #E6C88A 100%);
         }
         
-        .icon-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 140, 66, 0.9);
-            padding: 10px 0;
+        /* Modern design elements */
+        .gradient-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
-            font-weight: bold;
-            text-align: center;
-            font-size: 1.1rem;
+            border-radius: 5mm;
+            box-shadow: 0 3px 10px rgba(233, 85, 20, 0.3);
+            overflow: hidden;
         }
         
-        .number-circle {
-            width: 36px;
-            height: 36px;
+        .card {
+            background: white;
+            border-radius: 3mm;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-1mm);
+        }
+        
+        .problem-bubble {
+            background: white;
+            border-radius: 3mm;
+            padding: 2mm 3mm;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 3px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .solution-card {
+            background: var(--primary-light);
+            border-radius: 3mm;
+            border-bottom: 3px solid var(--primary-color);
+            padding: 3mm;
+            height: 100%;
+        }
+        
+        .numbered-circle {
+            background: var(--primary-color);
+            color: white;
+            width: 7mm;
+            height: 7mm;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 2mm;
         }
         
-        .team-member {
-            transition: transform 0.3s;
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            padding: 0 1mm;
         }
         
-        .team-member:hover {
-            transform: translateY(-5px);
+        .team-member-photo {
+            width: 22mm;
+            height: 22mm;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
         
-        .orange-gradient {
-            background: linear-gradient(135deg, #FF8C42 0%, #FF5722 100%);
+        .decorative-shape {
+            position: absolute;
+            background: var(--primary-color);
+            opacity: 0.05;
+            border-radius: 50%;
         }
         
-        .header-shadow {
-            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+        .title-decoration {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3mm;
         }
-
-        .header-image {
-            height: 100%;
-            width: 100%;
-            object-fit: contain;
-            object-position: center;
-            mix-blend-mode: soft-light;
+        
+        .title-decoration::before,
+        .title-decoration::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: var(--primary-color);
             opacity: 0.5;
         }
         
-        .shadow-text {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .title-decoration::before {
+            margin-right: 5mm;
         }
         
-        .message-box {
-            transform: rotate(-1deg);
-            transition: transform 0.3s;
+        .title-decoration::after {
+            margin-left: 5mm;
         }
         
-        .message-box:hover {
-            transform: rotate(0deg);
+        .gold-text {
+            background: var(--gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
         }
         
-        .feature-icon {
-            max-width: 80%;
-            max-height: 80%;
-            margin: 0 auto;
-        }
-        
-        .border-orange {
-            border-color: #FF8C42;
-        }
-        
-        .bubble-icon {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 8px;
-        }
-        
-        .connector-1 {
-            width: 12px;
-            height: 12px;
-            top: 85px;
-            left: 60px;
-        }
-        
-        .connector-2 {
-            width: 8px;
-            height: 8px;
-            top: 95px;
-            left: 80px;
-        }
-        
+        /* Responsive layout adjustments */
         @media print {
             body {
                 width: 210mm;
                 height: 297mm;
-                margin: 0;
-                padding: 0;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .page {
-                width: 210mm;
-                height: 297mm;
-                margin: 0;
-                padding: 10mm;
-                box-shadow: none;
-            }
-            
-            .feature-box:hover {
-                transform: none;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            
-            .team-member:hover {
-                transform: none;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <!-- ヘッダー部分 -->
-        <div class="relative overflow-hidden rounded-lg orange-gradient header-shadow"">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/head.png" alt="ビジネスイラスト" class="header-image">
+    <div class="a4-container">
+        <!-- Decorative shapes for visual interest -->
+        <div class="decorative-shape" style="width: 150mm; height: 150mm; right: -75mm; top: -75mm;"></div>
+        <div class="decorative-shape" style="width: 120mm; height: 120mm; left: -60mm; bottom: -60mm;"></div>
+        
+        <!-- Header section -->
+        <div class="gradient-header p-5 mb-4 relative">
+            <div class="absolute inset-0 overflow-hidden opacity-30">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/head.png" alt="背景イラスト" style="object-fit: cover; width: 100%; height: 100%; mix-blend-mode: soft-light;">
+                </div>
             </div>
-            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-orange-500 to-transparent opacity-30"></div>
-            <div class="relative z-10 p-8 flex flex-col items-center justify-center h-full">
-                <h1 class="text-6xl font-bold text-white text-center mb-4 shadow-text">声キャン！</h1>
-                <p class="text-3xl text-white text-center mb-10 shadow-text">学生の声から企業の採用を変える</p>
+            <div class="relative z-10">
+                <h1 class="text-4xl font-black tracking-tight text-center mb-2">声<span class="gold-text">キャン</span>！</h1>
+                <p class="text-xl font-medium text-center">学生の声から企業の採用を変える</p>
             </div>
         </div>
         
-        <!-- 新しい吹き出しスタイルの課題部分 -->
-        <div class="mb-2 p-6">
-            <div class="bg-gray-100 rounded-lg py-2 px-4 mb-4 w-auto inline-block mx-auto">
-                <h2 class="text-2xl font-bold text-center">こんな課題に向いてます</h2>
-            </div>
-            
-            <!-- 2段構造のレイアウト -->
-            <div class="flex flex-col space-y-12">
-                <!-- 第1行：吹き出し -->
-                <div class="flex">
-                    <!-- 左側：イラスト (1/5) -->
-                    <div class="w-1/5 flex items-center justify-center pr-4">
-                        <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/unknow.jpeg" alt="わからない人" class="h-32 w-auto">
+        <!-- Main content -->
+        <div class="flex-grow">
+            <!-- Problem & Solution Section -->
+            <div class="mb-4">
+                <div class="title-decoration">
+                    <h2 class="text-lg font-bold px-2 text-center" style="color: var(--primary-dark);">こんな課題に向いています</h2>
+                </div>
+                
+                <div class="flex mb-3">
+                    <!-- Left side: Character -->
+                    <div class="w-1/5 flex items-start justify-center">
+                        <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/unknow.jpeg" alt="困っている方" class="w-16 h-auto">
                     </div>
                     
-                    <!-- 右側：吹き出し (4/5) -->
-                    <div class="w-4/5 grid grid-cols-3 gap-4">
-                        <!-- 吹き出し1: 採用ページの改善 -->
-                        <div class="flex justify-center">
-                            <div class="thought-bubble relative" style="border: 2px solid #3490dc; border-radius: 25px; padding: 15px; width: 170px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                                <div class="flex flex-col items-center">
-                                    <svg class="bubble-icon text-blue-500" style="width: 40px; height: 40px; margin-bottom: 8px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                    <p class="text-center text-sm font-medium">採用ページを<br>改善したい...</p>
-                                </div>
-                            </div>
+                    <!-- Right side: Problems -->
+                    <div class="w-4/5 grid grid-cols-3 gap-3">
+                        <div class="problem-bubble flex flex-col items-center">
+                            <i class="fas fa-file-alt mb-1" style="color: var(--primary-color);"></i>
+                            <p class="text-sm text-center" style="color: var(--text-medium);">採用ページを<br>改善したい...</p>
                         </div>
-                        
-                        <!-- 吹き出し2: インターン応募 -->
-                        <div class="flex justify-center">
-                            <div class="thought-bubble relative" style="border: 2px solid #3490dc; border-radius: 25px; padding: 15px; width: 170px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                                <div class="flex flex-col items-center">
-                                    <svg class="bubble-icon text-blue-500" style="width: 40px; height: 40px; margin-bottom: 8px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                                    </svg>
-                                    <p class="text-center text-sm font-medium">インターン<br>応募が少ない</p>
-                                </div>
-                            </div>
+                        <div class="problem-bubble flex flex-col items-center">
+                            <i class="fas fa-user-graduate mb-1" style="color: var(--primary-color);"></i>
+                            <p class="text-sm text-center" style="color: var(--text-medium);">インターン<br>応募が少ない</p>
                         </div>
-                        
-                        <!-- 吹き出し3: SNS反応 -->
-                        <div class="flex justify-center">
-                            <div class="thought-bubble relative" style="border: 2px solid #3490dc; border-radius: 25px; padding: 15px; width: 170px; background-color: white; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-                                <div class="flex flex-col items-center">
-                                    <svg class="bubble-icon text-blue-500" style="width: 40px; height: 40px; margin-bottom: 8px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                    <p class="text-center text-sm font-medium">SNSの反応が<br>ない...</p>
-                                </div>
-                            </div>
+                        <div class="problem-bubble flex flex-col items-center">
+                            <i class="fas fa-comment-alt mb-1" style="color: var(--primary-color);"></i>
+                            <p class="text-sm text-center" style="color: var(--text-medium);">SNSの反応が<br>ない...</p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 第2行：サービス価値 -->
                 <div class="flex">
-                    <!-- 左側：イラスト (1/5) -->
-                    <div class="w-1/5 flex items-center justify-center pr-4">
-                        <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/know.jpeg" alt="わかるひ" class="h-32 w-auto">
+                    <!-- Left side: Character -->
+                    <div class="w-1/5 flex items-start justify-center">
+                        <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/know.jpeg" alt="解決策を知っている方" class="w-16 h-auto">
                     </div>
                     
-                    <!-- 右側：サービス価値 (4/5) -->
-                    <div class="w-4/5 grid grid-cols-3 gap-4">
-                        <!-- サービス価値1 -->
-                        <div class="feature-box secondary-color">
-                            <div class="w-full icon-wrapper">
-                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/eafeaacb-29bc-420b-8710-0b6f89f56399_wm" alt="採用ページの改善" class="icon-image">
-                                <div class="icon-overlay">採用ページの改善</div>
+                    <!-- Right side: Solutions -->
+                    <div class="w-4/5 grid grid-cols-3 gap-3">
+                        <div class="solution-card flex flex-col items-center">
+                            <div class="mb-2 p-2 bg-white rounded-full shadow-sm">
+                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/eafeaacb-29bc-420b-8710-0b6f89f56399_wm" alt="採用ページ改善アイコン" class="w-12 h-12 object-contain">
                             </div>
+                            <h3 class="text-sm font-bold mb-1 text-center" style="color: var(--primary-dark);">採用ページの改善</h3>
+                            <p class="text-xs text-center" style="color: var(--text-medium);">学生の声を取り入れた魅力的なコンテンツ</p>
                         </div>
-                        
-                        <!-- サービス価値2 -->
-                        <div class="feature-box secondary-color">
-                            <div class="w-full icon-wrapper">
-                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/b5985145-0589-43b3-9c74-7cdcfd1776dc_wm" alt="インターン応募増" class="icon-image">
-                                <div class="icon-overlay">インターン応募増</div>
+                        <div class="solution-card flex flex-col items-center">
+                            <div class="mb-2 p-2 bg-white rounded-full shadow-sm">
+                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/b5985145-0589-43b3-9c74-7cdcfd1776dc_wm" alt="インターン応募増アイコン" class="w-12 h-12 object-contain">
                             </div>
+                            <h3 class="text-sm font-bold mb-1 text-center" style="color: var(--primary-dark);">インターン応募増</h3>
+                            <p class="text-xs text-center" style="color: var(--text-medium);">学生目線のアピールポイント強化</p>
                         </div>
-                        
-                        <!-- サービス価値3 -->
-                        <div class="feature-box secondary-color">
-                            <div class="w-full icon-wrapper">
-                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/dd8a12fa-76f8-42bf-95cb-1ac2a962a86d_wm" alt="リアルな学生の声" class="icon-image">
-                                <div class="icon-overlay">リアルな学生の声</div>
+                        <div class="solution-card flex flex-col items-center">
+                            <div class="mb-2 p-2 bg-white rounded-full shadow-sm">
+                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/dd8a12fa-76f8-42bf-95cb-1ac2a962a86d_wm" alt="リアルな学生の声アイコン" class="w-12 h-12 object-contain">
                             </div>
+                            <h3 class="text-sm font-bold mb-1 text-center" style="color: var(--primary-dark);">リアルな学生の声</h3>
+                            <p class="text-xs text-center" style="color: var(--text-medium);">SNS発信向けの生の声収集</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- 導入の流れ -->
-        <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-5 text-center">導入の流れ</h2>
-            <div class="grid grid-cols-4 gap-4">
-                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
-                    <div class="number-circle main-color mx-auto mb-3">1</div>
-                    <h3 class="font-bold mb-2 text-orange-700">アンケート内容の精査</h3>
-                </div>
-                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
-                    <div class="number-circle main-color mx-auto mb-3">2</div>
-                    <h3 class="font-bold mb-2 text-orange-700">アンケート作成</h3>
-                </div>
-                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
-                    <div class="number-circle main-color mx-auto mb-3">3</div>
-                    <h3 class="font-bold mb-2 text-orange-700">声を集める</h3>
-                </div>
-                <div class="relative text-center bg-white p-4 rounded-lg shadow-sm border border-orange-200">
-                    <div class="number-circle main-color mx-auto mb-3">4</div>
-                    <h3 class="font-bold mb-2 text-orange-700">フィードバック</h3>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 統合したセクション - 高さを半分に、電話なし -->
-        <div class="mb-4 bg-gray-50 rounded-xl p-3">
-            <h2 class="text-xl font-bold mb-2 text-center">運営メンバー・お問い合わせ</h2>
-            
-            <div class="flex flex-wrap">
-                <!-- 左側：運営メンバー（2/3） -->
-                <!-- 運営メンバー部分 -->
-                <div class="w-2/3 flex">
-                    <!-- 運営メンバー1: 1/3 -->
-                    <div class="w-1/2 px-2">
-                        <div class="team-member text-center">
-                            <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-2 border-orange-500 bg-white flex items-center justify-center shadow-md">
-                                <!-- SVGをimgタグに変更 -->
-                                <img src="https://page1.genspark.site/v1/base64_upload/631ffd55cb50545eab1df46c59c4f6a6" alt="藤木 見帆" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="font-bold text-lg text-orange-700">藤木 見帆</h3>
-                            <p class="text-sm bg-white p-2 rounded-lg mt-2 shadow-sm">合同会社Solizon<br>SNSマーケティング/<br>SNSコンサルティング</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 運営メンバー2: 1/3 -->
-                    <div class="w-1/2 px-2">
-                        <div class="team-member text-center">
-                            <div class="w-28 h-28 rounded-full overflow-hidden mx-auto mb-3 border-2 border-orange-500 bg-white flex items-center justify-center shadow-md">
-                                <!-- SVGをimgタグに変更 -->
-                                <img src="https://page1.genspark.site/v1/base64_upload/eda21796be89401c6f8cfba332076062" alt="西田 啓人" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="font-bold text-lg text-orange-700">西田 啓人</h3>
-                            <p class="text-sm bg-white p-2 rounded-lg mt-2 shadow-sm">福井大学 電力システム研究室<br>博士課程3年</p>
-                        </div>
-                    </div>
+
+            <!-- Implementation flow -->
+            <div class="mb-4">
+                <div class="title-decoration">
+                    <h2 class="text-lg font-bold px-2 text-center" style="color: var(--primary-dark);">導入の流れ</h2>
                 </div>
                 
-                <!-- 右側：お問い合わせ（1/3） -->
-                <div class="w-1/3 pl-3">
-                    <div class="orange-gradient rounded-lg p-2 text-center text-white shadow-lg h-full flex flex-col justify-center">
-                        <h3 class="text-sm font-bold mb-1">お問い合わせ</h3>
-                        <p class="mb-1 text-xs">「興味あるかも」と思ったら、一度お話ししませんか？</p>
-                        <div class="bg-white bg-opacity-90 px-2 py-1 rounded-lg shadow-md text-gray-800 w-4/5 mx-auto">
-                            <p class="font-bold text-orange-600 text-xs">info@koe-can.jp</p>
+                <div class="flex justify-between items-center px-5">
+                    <div class="flex flex-col items-center w-1/4">
+                        <div class="numbered-circle mb-2">1</div>
+                        <div class="card p-2 w-full text-center">
+                            <h3 class="text-sm font-bold" style="color: var(--primary-dark);">アンケート内容の精査</h3>
+                            <p class="text-xs" style="color: var(--text-medium);">目標に合わせた質問設計</p>
+                        </div>
+                    </div>
+                    
+                    <i class="flow-arrow fas fa-chevron-right"></i>
+                    
+                    <div class="flex flex-col items-center w-1/4">
+                        <div class="numbered-circle mb-2">2</div>
+                        <div class="card p-2 w-full text-center">
+                            <h3 class="text-sm font-bold" style="color: var(--primary-dark);">アンケート作成</h3>
+                            <p class="text-xs" style="color: var(--text-medium);">学生が回答しやすい設計</p>
+                        </div>
+                    </div>
+                    
+                    <i class="flow-arrow fas fa-chevron-right"></i>
+                    
+                    <div class="flex flex-col items-center w-1/4">
+                        <div class="numbered-circle mb-2">3</div>
+                        <div class="card p-2 w-full text-center">
+                            <h3 class="text-sm font-bold" style="color: var(--primary-dark);">声を集める</h3>
+                            <p class="text-xs" style="color: var(--text-medium);">学生ネットワークの活用</p>
+                        </div>
+                    </div>
+                    
+                    <i class="flow-arrow fas fa-chevron-right"></i>
+                    
+                    <div class="flex flex-col items-center w-1/4">
+                        <div class="numbered-circle mb-2">4</div>
+                        <div class="card p-2 w-full text-center">
+                            <h3 class="text-sm font-bold" style="color: var(--primary-dark);">フィードバック</h3>
+                            <p class="text-xs" style="color: var(--text-medium);">データ分析と提案</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Key benefits section -->
+            <div class="mb-4 px-5">
+                <div class="card p-3" style="background: var(--background-light);">
+                    <h2 class="text-lg font-bold mb-2 text-center" style="color: var(--primary-dark);">声キャン！の強み</h2>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="flex items-start">
+                            <div class="mr-2 mt-1 text-sm" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i></div>
+                            <p class="text-sm" style="color: var(--text-medium);">学生目線でリアルな声を収集</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-2 mt-1 text-sm" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i></div>
+                            <p class="text-sm" style="color: var(--text-medium);">企業の魅力を効果的に伝達</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-2 mt-1 text-sm" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i></div>
+                            <p class="text-sm" style="color: var(--text-medium);">具体的な改善提案を実施</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-2 mt-1 text-sm" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i></div>
+                            <p class="text-sm" style="color: var(--text-medium);">SNS活用戦略のサポート</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-2 mt-1 text-sm" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i></div>
+                            <p class="text-sm" style="color: var(--text-medium);">データに基づくコンテンツ作成</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="mr-2 mt-1 text-sm" style="color: var(--primary-color);"><i class="fas fa-check-circle"></i></div>
+                            <p class="text-sm" style="color: var(--text-medium);">継続的なフィードバックループ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team section combined with contact -->
+            <div class="px-5">
+                <div class="card p-3" style="background: linear-gradient(135deg, #FFF6EB 0%, white 100%);">
+                    <div class="flex">
+                        <!-- Team members -->
+                        <div class="w-2/3 flex">
+                            <div class="w-1/2 flex items-center">
+                                <div class="flex flex-col items-center w-full">
+                                    <img src="https://page1.genspark.site/v1/base64_upload/631ffd55cb50545eab1df46c59c4f6a6" alt="藤木 見帆" class="team-member-photo mb-2">
+                                    <h3 class="text-sm font-bold" style="color: var(--primary-dark);">藤木 見帆</h3>
+                                    <p class="text-xs text-center" style="color: var(--text-medium);">合同会社Solizon<br>SNSマーケティング</p>
+                                </div>
+                            </div>
+                            <div class="w-1/2 flex items-center">
+                                <div class="flex flex-col items-center w-full">
+                                    <img src="https://page1.genspark.site/v1/base64_upload/eda21796be89401c6f8cfba332076062" alt="西田 啓人" class="team-member-photo mb-2">
+                                    <h3 class="text-sm font-bold" style="color: var(--primary-dark);">西田 啓人</h3>
+                                    <p class="text-xs text-center" style="color: var(--text-medium);">福井大学<br>博士課程3年</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact info -->
+                        <div class="w-1/3 pl-3">
+                            <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);" class="rounded-lg p-3 h-full flex flex-col justify-center text-white">
+                                <h3 class="text-sm font-bold mb-2 text-center">お問い合わせ</h3>
+                                <p class="text-xs mb-2 text-center">「興味あるかも」と思ったら、<br>一度お話ししませんか？</p>
+                                <div class="bg-white bg-opacity-90 px-2 py-2 rounded-lg shadow-md text-center mx-auto" style="width: 90%;">
+                                    <p class="font-bold text-sm" style="color: var(--primary-dark);">info@koe-can.jp</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- フッター -->
-        <div class="mt-0 text-center text-sm text-gray-500">
+        <!-- Footer -->
+        <div class="mt-3 text-center text-xs" style="color: var(--text-light);">
             <p>© 2023 声キャン！プロジェクト｜学生の声から企業の採用を変える</p>
         </div>
         
-        <!-- オレンジのアクセント部分 -->
-        <div class="absolute top-0 right-0 h-16 w-40 main-color rounded-bl-xl shadow-md"></div>
+        <!-- Decorative corner accent -->
+        <div class="absolute top-0 right-0 w-24 h-24" style="background: linear-gradient(135deg, transparent 50%, var(--primary-color) 50%); border-radius: 0 0 0 100%;"></div>
     </div>
 </body>
 </html>
