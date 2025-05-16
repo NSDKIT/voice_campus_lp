@@ -150,6 +150,120 @@
             border-color: #FF8C42;
         }
         
+        /* 円形配置のスタイル追加 */
+        .question-circle {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            z-index: 10;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(255, 140, 66, 0.3);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .question-item {
+            position: absolute;
+            width: 180px;
+            background-color: white;
+            border-left: 4px solid #FF8C42;
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .question-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 上部の質問 */
+        .question-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* 右側の質問 */
+        .question-right {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+        
+        /* 下部の質問 */
+        .question-bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* 左側の質問 */
+        .question-left {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+        
+        /* 質問と中央画像をつなぐ線 */
+        .connector {
+            position: absolute;
+            background-color: #FF8C42;
+            opacity: 0.5;
+            z-index: 5;
+        }
+        
+        /* 上部の線 */
+        .connector-top {
+            width: 2px;
+            height: 100px;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* 右側の線 */
+        .connector-right {
+            width: 100px;
+            height: 2px;
+            top: 50%;
+            right: 180px;
+            transform: translateY(-50%);
+        }
+        
+        /* 下部の線 */
+        .connector-bottom {
+            width: 2px;
+            height: 100px;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* 左側の線 */
+        .connector-left {
+            width: 100px;
+            height: 2px;
+            top: 50%;
+            left: 180px;
+            transform: translateY(-50%);
+        }
+        
         @media print {
             body {
                 width: 210mm;
@@ -175,6 +289,11 @@
             
             .team-member:hover {
                 transform: none;
+            }
+            
+            .question-item:hover {
+                transform: none;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
         }
     </style>
@@ -220,35 +339,61 @@
             </div>
         </div>
         
-        <!-- 課題部分 -->
+        <!-- 円形の課題部分 -->
         <div class="mb-8 bg-gray-50 rounded-xl p-6 shadow-sm">
             <h2 class="text-2xl font-bold mb-4 text-center">こんな課題に向いてます</h2>
-            <div class="grid grid-cols-1 gap-5">
-                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                    </svg>
-                    <p class="font-medium">採用ページを改善したいが、どこがズレてるかわからない</p>
+            
+            <div class="question-circle">
+                <!-- 中央の画像 -->
+                <div class="center-image">
+                    <img src="https://page1.genspark.site/v1/base64_upload/2f4bdd716801006e58ea69d4ac019a84" alt="疑問を持つビジネスマン" class="w-full h-full object-contain">
                 </div>
-                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                    </svg>
-                    <p class="font-medium">インターンを作ったのに応募が少ない</p>
+                
+                <!-- 上部の質問 -->
+                <div class="connector connector-top"></div>
+                <div class="question-item question-top">
+                    <div class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                        </svg>
+                        <p class="font-medium text-sm">採用ページを改善したいが、どこがズレてるかわからない</p>
+                    </div>
                 </div>
-                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                    </svg>
-                    <p class="font-medium">SNSで採用発信をしているが反応がない</p>
+                
+                <!-- 右側の質問 -->
+                <div class="connector connector-right"></div>
+                <div class="question-item question-right">
+                    <div class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                        </svg>
+                        <p class="font-medium text-sm">インターンを作ったのに応募が少ない</p>
+                    </div>
                 </div>
-                <div class="flex items-start p-4 bg-white rounded-lg shadow-sm border-l-4 border-orange-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
-                    </svg>
-                    <p class="font-medium">学生から見た「うちの会社のイメージ」を知りたい</p>
+                
+                <!-- 下部の質問 -->
+                <div class="connector connector-bottom"></div>
+                <div class="question-item question-bottom">
+                    <div class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                        </svg>
+                        <p class="font-medium text-sm">SNSで採用発信をしているが反応がない</p>
+                    </div>
+                </div>
+                
+                <!-- 左側の質問 -->
+                <div class="connector connector-left"></div>
+                <div class="question-item question-left">
+                    <div class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                        </svg>
+                        <p class="font-medium text-sm">学生から見た「うちの会社のイメージ」を知りたい</p>
+                    </div>
                 </div>
             </div>
+            
             <div class="text-center mt-5 bg-orange-100 rounded-lg p-4 border-orange-200 border">
                 <p class="font-bold text-xl text-orange-600 mb-2">学生の"リアルな印象"を集めます</p>
                 <div class="flex justify-center gap-6">
