@@ -49,7 +49,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
-            height: 240px;
+            height: auto; /* 固定高さから自動高さに変更 */
+            min-height: 160px; /* 最低限の高さを設定 */
         }
         
         .feature-box:hover {
