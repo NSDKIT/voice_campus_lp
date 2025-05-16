@@ -201,39 +201,40 @@
                     <h2 class="text-lg font-bold px-2 text-center" style="color: var(--primary-dark);">こんな課題に向いています</h2>
                 </div>
                 
-                <div class="flex mb-3">
-                    <!-- Left side: Character -->
-                    <div class="w-1/5 flex items-start justify-center">
-                        <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/pc_human.png" alt="困っている方" class="w-10 h-auto">
+                <!-- 新しい親コンテナ - 左側のキャラクターと右側のコンテンツを含む -->
+                <div class="flex">
+                    <!-- 左側: キャラクター画像 (2行分の高さに) -->
+                    <div class="w-1/5 flex items-center justify-center" style="align-self: stretch;">
+                        <img src="https://raw.githubusercontent.com/NSDKIT/voice_campus_lp/main/pc_human.png" alt="困っている方" class="w-16 h-auto">
                     </div>
                     
-                    <!-- Right side: Problems -->
-                    <div class="w-4/5 grid grid-cols-3 gap-3">
-                        <div class="problem-bubble flex flex-col items-center">
-                            <i class="fas fa-file-alt mb-1" style="color: var(--primary-color);"></i>
-                            <p class="text-sm text-center" style="color: var(--text-medium);">採用ページを<br>改善したい...</p>
-                        </div>
-                        <div class="problem-bubble flex flex-col items-center">
-                            <i class="fas fa-user-graduate mb-1" style="color: var(--primary-color);"></i>
-                            <p class="text-sm text-center" style="color: var(--text-medium);">インターン<br>応募が少ない</p>
-                        </div>
-                        <div class="problem-bubble flex flex-col items-center">
-                            <i class="fas fa-comment-alt mb-1" style="color: var(--primary-color);"></i>
-                            <p class="text-sm text-center" style="color: var(--text-medium);">SNSの反応が<br>ない...</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex">
-                    <!-- Right side: Solutions -->
-                    <div class="w-4/5 grid grid-cols-3 gap-3">
-                        <div class="solution-card flex flex-col items-center">
-                            <div class="mb-2 p-2 bg-white rounded-full shadow-sm">
-                                <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/eafeaacb-29bc-420b-8710-0b6f89f56399_wm" alt="採用ページ改善アイコン" class="w-12 h-12 object-contain">
+                    <!-- 右側: 問題と解決策 -->
+                    <div class="w-4/5">
+                        <!-- 問題の行 -->
+                        <div class="grid grid-cols-3 gap-3 mb-3">
+                            <div class="problem-bubble flex flex-col items-center">
+                                <i class="fas fa-file-alt mb-1" style="color: var(--primary-color);"></i>
+                                <p class="text-sm text-center" style="color: var(--text-medium);">採用ページを<br>改善したい...</p>
                             </div>
-                            <h3 class="text-sm font-bold mb-1 text-center" style="color: var(--primary-dark);">採用ページの改善</h3>
-                            <p class="text-xs text-center" style="color: var(--text-medium);">学生の声を取り入れた魅力的なコンテンツ</p>
+                            <div class="problem-bubble flex flex-col items-center">
+                                <i class="fas fa-user-graduate mb-1" style="color: var(--primary-color);"></i>
+                                <p class="text-sm text-center" style="color: var(--text-medium);">インターン<br>応募が少ない</p>
+                            </div>
+                            <div class="problem-bubble flex flex-col items-center">
+                                <i class="fas fa-comment-alt mb-1" style="color: var(--primary-color);"></i>
+                                <p class="text-sm text-center" style="color: var(--text-medium);">SNSの反応が<br>ない...</p>
+                            </div>
                         </div>
+                        
+                        <!-- 解決策の行 -->
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="solution-card flex flex-col items-center">
+                                <div class="mb-2 p-2 bg-white rounded-full shadow-sm">
+                                    <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/eafeaacb-29bc-420b-8710-0b6f89f56399_wm" alt="採用ページ改善アイコン" class="w-12 h-12 object-contain">
+                                </div>
+                                <h3 class="text-sm font-bold mb-1 text-center" style="color: var(--primary-dark);">採用ページの改善</h3>
+                                <p class="text-xs text-center" style="color: var(--text-medium);">学生の声を取り入れた魅力的なコンテンツ</p>
+                            </div>
                         <div class="solution-card flex flex-col items-center">
                             <div class="mb-2 p-2 bg-white rounded-full shadow-sm">
                                 <img src="https://cdn1.genspark.ai/user-upload-image/gpt_image_generated/b5985145-0589-43b3-9c74-7cdcfd1776dc_wm" alt="インターン応募増アイコン" class="w-12 h-12 object-contain">
