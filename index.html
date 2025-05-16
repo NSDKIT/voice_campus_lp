@@ -49,8 +49,8 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
-            height: auto; /* 固定高さから自動高さに変更 */
-            min-height: 160px; /* 最低限の高さを設定 */
+            height: auto;
+            min-height: 160px;
         }
         
         .feature-box:hover {
@@ -150,118 +150,104 @@
             border-color: #FF8C42;
         }
         
-        /* 円形配置のスタイル追加 */
-        .question-circle {
+        /* 吹き出しスタイル追加 */
+        .thought-bubble-container {
             position: relative;
             width: 100%;
-            height: 500px;
-            margin: 0 auto;
+            height: 480px;
         }
         
-        .center-image {
+        .thought-bubble {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            z-index: 10;
             background-color: white;
-            box-shadow: 0 0 20px rgba(255, 140, 66, 0.3);
-            padding: 10px;
+            border: 2px solid #3490dc;
+            border-radius: 25px;
+            padding: 15px;
+            width: 170px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
         }
         
-        .question-item {
+        .thought-connector {
             position: absolute;
-            width: 180px;
             background-color: white;
-            border-left: 4px solid #FF8C42;
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            border: 2px solid #3490dc;
+            border-radius: 50%;
+            z-index: 1;
         }
         
-        .question-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* 上部の質問 */
-        .question-top {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        /* 右側の質問 */
-        .question-right {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-        }
-        
-        /* 下部の質問 */
-        .question-bottom {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        /* 左側の質問 */
-        .question-left {
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-        }
-        
-        /* 質問と中央画像をつなぐ線 */
-        .connector {
+        .central-figure {
             position: absolute;
-            background-color: #FF8C42;
-            opacity: 0.5;
-            z-index: 5;
-        }
-        
-        /* 上部の線 */
-        .connector-top {
-            width: 2px;
-            height: 100px;
-            top: 70px;
             left: 50%;
+            bottom: 0;
             transform: translateX(-50%);
+            width: 180px;
+            height: auto;
+            z-index: 10;
         }
         
-        /* 右側の線 */
-        .connector-right {
-            width: 100px;
-            height: 2px;
-            top: 50%;
-            right: 180px;
-            transform: translateY(-50%);
+        .question-mark {
+            position: absolute;
+            color: #3490dc;
+            font-size: 60px;
+            font-weight: bold;
+            right: 30%;
+            top: 40%;
+            z-index: 10;
         }
         
-        /* 下部の線 */
-        .connector-bottom {
-            width: 2px;
-            height: 100px;
-            bottom: 70px;
-            left: 50%;
-            transform: translateX(-50%);
+        .bubble-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
         }
         
-        /* 左側の線 */
-        .connector-left {
-            width: 100px;
-            height: 2px;
-            top: 50%;
-            left: 180px;
-            transform: translateY(-50%);
+        /* 各吹き出しの位置設定 */
+        .bubble-1 {
+            top: 5%;
+            left: 5%;
+        }
+        
+        .bubble-2 {
+            top: 5%;
+            left: 35%;
+        }
+        
+        .bubble-3 {
+            top: 5%;
+            right: 35%;
+        }
+        
+        .bubble-4 {
+            top: 5%;
+            right: 5%;
+        }
+        
+        .bubble-5 {
+            bottom: 40%;
+            left: 5%;
+        }
+        
+        .bubble-6 {
+            bottom: 40%;
+            right: 5%;
+        }
+        
+        .connector-1 {
+            width: 12px;
+            height: 12px;
+            top: 85px;
+            left: 60px;
+        }
+        
+        .connector-2 {
+            width: 8px;
+            height: 8px;
+            top: 95px;
+            left: 80px;
         }
         
         @media print {
@@ -289,11 +275,6 @@
             
             .team-member:hover {
                 transform: none;
-            }
-            
-            .question-item:hover {
-                transform: none;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
         }
     </style>
@@ -339,57 +320,74 @@
             </div>
         </div>
         
-        <!-- 円形の課題部分 -->
+        <!-- 新しい吹き出しスタイルの課題部分 -->
         <div class="mb-8 bg-gray-50 rounded-xl p-6 shadow-sm">
             <h2 class="text-2xl font-bold mb-4 text-center">こんな課題に向いてます</h2>
             
-            <div class="question-circle">
-                <!-- 中央の画像 -->
-                <div class="center-image">
-                    <img src="https://page1.genspark.site/v1/base64_upload/2f4bdd716801006e58ea69d4ac019a84" alt="疑問を持つビジネスマン" class="w-full h-full object-contain">
-                </div>
+            <div class="thought-bubble-container">
+                <!-- 中央の人物 -->
+                <img src="https://page1.genspark.site/v1/base64_upload/483522febf895c1891c15d78b9726f20" alt="疑問を持つビジネスマン" class="central-figure">
                 
-                <!-- 上部の質問 -->
-                <div class="connector connector-top"></div>
-                <div class="question-item question-top">
-                    <div class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                <!-- クエスチョンマーク -->
+                <div class="question-mark">?</div>
+                
+                <!-- 吹き出し1: 採用ページの改善 -->
+                <div class="thought-bubble bubble-1">
+                    <div class="flex flex-col items-center">
+                        <svg class="bubble-icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <p class="font-medium text-sm">採用ページを改善したいが、どこがズレてるかわからない</p>
+                        <p class="text-center text-sm font-medium">採用ページを<br>改善したい...</p>
                     </div>
                 </div>
                 
-                <!-- 右側の質問 -->
-                <div class="connector connector-right"></div>
-                <div class="question-item question-right">
-                    <div class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                <!-- 吹き出し2: インターン応募 -->
+                <div class="thought-bubble bubble-2">
+                    <div class="flex flex-col items-center">
+                        <svg class="bubble-icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                         </svg>
-                        <p class="font-medium text-sm">インターンを作ったのに応募が少ない</p>
+                        <p class="text-center text-sm font-medium">インターン<br>応募が少ない</p>
                     </div>
                 </div>
                 
-                <!-- 下部の質問 -->
-                <div class="connector connector-bottom"></div>
-                <div class="question-item question-bottom">
-                    <div class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                <!-- 吹き出し3: SNS反応 -->
+                <div class="thought-bubble bubble-3">
+                    <div class="flex flex-col items-center">
+                        <svg class="bubble-icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
-                        <p class="font-medium text-sm">SNSで採用発信をしているが反応がない</p>
+                        <p class="text-center text-sm font-medium">SNSの反応が<br>ない...</p>
                     </div>
                 </div>
                 
-                <!-- 左側の質問 -->
-                <div class="connector connector-left"></div>
-                <div class="question-item question-left">
-                    <div class="flex items-start">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4" />
+                <!-- 吹き出し4: 会社イメージ -->
+                <div class="thought-bubble bubble-4">
+                    <div class="flex flex-col items-center">
+                        <svg class="bubble-icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
-                        <p class="font-medium text-sm">学生から見た「うちの会社のイメージ」を知りたい</p>
+                        <p class="text-center text-sm font-medium">会社イメージを<br>知りたい</p>
+                    </div>
+                </div>
+                
+                <!-- 吹き出し5: 人材確保 -->
+                <div class="thought-bubble bubble-5">
+                    <div class="flex flex-col items-center">
+                        <svg class="bubble-icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <p class="text-center text-sm font-medium">人材探しで<br>悩んでいる</p>
+                    </div>
+                </div>
+                
+                <!-- 吹き出し6: 学生理解 -->
+                <div class="thought-bubble bubble-6">
+                    <div class="flex flex-col items-center">
+                        <svg class="bubble-icon text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <p class="text-center text-sm font-medium">良い採用方法が<br>わからない</p>
                     </div>
                 </div>
             </div>
